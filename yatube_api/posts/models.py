@@ -27,6 +27,9 @@ class Post(models.Model):
     def __str__(self):
         return f'{self.group}. {self.author.username}: {self.text[:25]}'
 
+    class Meta:
+        ordering = ('pub_date',)
+
 
 class Comment(models.Model):
     author = models.ForeignKey(
